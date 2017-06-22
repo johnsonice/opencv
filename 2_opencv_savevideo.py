@@ -21,11 +21,10 @@ _, frame = cap.read()
 fps = cap.get(cv2.CAP_PROP_FPS)
 height, width, _ = frame.shape
 print(height,width)
-#cv2.resizeWindow('', width, height)  ## height and width has to match camera input
+cv2.resizeWindow('', width,height)  ## height and width has to match camera input
 
-fourcc = cv2.VideoWriter_fourcc(*'mp4v')  ## i can only make mp4 work in mac 
-out = cv2.VideoWriter('data/video.mp4', fourcc, 10, (width,height))
-
+fourcc = cv2.VideoWriter_fourcc(*'MJPG')  ## i can only make MJPG work in ubuntu 
+out = cv2.VideoWriter('data/video.avi', fourcc, 20.0, (width,height)) #
 while True:
     ret,frame = cap.read()
     #grey = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
